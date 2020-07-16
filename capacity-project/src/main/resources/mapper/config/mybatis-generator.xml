@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- mysql连接配置 -->
+    <properties resource="mapper/config/mysql-connector-config.properties" />
+
+    <!-- mysql驱动 -->
+    <classPathEntry location="${jdbc.driverLocation}" />
+
+    <context id="mysqlTables" targetRuntime="MyBatis3">
+        <!-- sqlmap是否合并 -->
+        <property name="mergeable" value="false" />
+        <plugin type="com.guohualife.common.util.db.generator.plugin.IsMergeXmlPlugin" />
+
+        <!-- 是否生成主键注解 -->
+        <plugin type="com.guohualife.common.util.db.generator.plugin.PrimaryKeyPlugin" />
+
+        <commentGenerator>
+            <property name="suppressDate" value="true" />
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <!--数据库链接地址账号密码 -->
+        <jdbcConnection
+                driverClass="${jdbc.driverClass}"
+                connectionURL="${jdbc.connectionURL}"
+                userId="${jdbc.userId}"
+                password="${jdbc.password}">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!--生成Model类存放位置 -->
+        <javaModelGenerator targetPackage="com.sinosoft.capacity.db.pojo" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!--生成映射文件存放位置 -->
+        <sqlMapGenerator targetPackage="com.sinosoft.capacity.db.mapper" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <!--生成Dao类存放位置 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.sinosoft.capacity.db.dao" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <!--生成对应表及类名 -->
+        <table tableName="DZSW_REQUIREMENT_TASK" mapperName="DzswReauirementTaskDAO">
+            <columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" />
+            <columnOverride column="IS_DELETE" javaType="Short" />
+        </table>
+
+    </context>
+</generatorConfiguration>

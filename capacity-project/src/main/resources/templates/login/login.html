@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Insert title here</title>
+    <script src="/js/vue/vue.js">
+
+    </script>
+</head>
+<body>
+<h1>springboot登录</h1>
+<div id="login_in">
+    用户名<input type="text" v-model="username" id="input_username"/> <br>
+    密码  <input type="text" v-model="password" id="input_password"/> <br>
+    <button id="login" @click="login()">登录</button>
+    <p >输入的用户名：{{username}}</p>
+    <p >输入的密码：{{password}}</p>
+</div>
+<a href="http://localhost:8080/capacity/hello" >hello</a>
+</body>
+
+<script>
+    var v = new Vue({
+        el:"#login_in",
+        data:{
+            username:"",
+            password:""
+        },
+        methods:{
+            login:function () {
+                //this.#http.post('login')
+
+                console.log('123455');
+                console.log(v.$data.username);
+            }
+        }
+    })
+</script>
+</html>
