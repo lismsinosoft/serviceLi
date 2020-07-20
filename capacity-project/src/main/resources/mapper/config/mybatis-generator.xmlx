@@ -41,7 +41,7 @@
         </javaModelGenerator>
 
         <!--生成映射文件存放位置 -->
-        <sqlMapGenerator targetPackage="com.sinosoft.capacity.db.mapper" targetProject="src/main/java">
+        <sqlMapGenerator targetPackage="mapper.base" targetProject="src/main/java">
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
 

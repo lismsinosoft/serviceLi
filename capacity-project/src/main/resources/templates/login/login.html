@@ -28,10 +28,12 @@
         },
         methods:{
             login:function () {
-                //this.#http.post('login')
-
-                console.log('123455');
-                console.log(v.$data.username);
+                this.$http.post('login',{username:this.username,password:this.password},{emulateJSON:true}).then(function(res){
+                    this.$router.push({ path:'/index.html'  })
+                    window.location.href = 'index';
+                },function(res){
+                    console.log(res.status);
+                });
             }
         }
     })
