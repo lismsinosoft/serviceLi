@@ -121,11 +121,11 @@
                     </dependency>
                 </dependencies>
                 <!-- <executions> <execution> <id>Generate MyBatis Artifacts</id> <phase>install</phase> <goals> <goal>generate</goal> </goals> </execution> </executions> -->
-                <!--<configuration>
+                <configuration>
                     <verbose>true</verbose>
                     <overwrite>true</overwrite>
-                    <configurationFile>src/main/resources/mapper/config/mybatis-generator.xmlx</configurationFile>
-                </configuration>-->
+                    <configurationFile>src/main/resources/config/mybatis-generator.xml</configurationFile>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

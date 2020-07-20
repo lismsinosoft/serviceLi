@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosoft.capacity.db.dao.EbizCostTaskDAO">
+  <resultMap id="BaseResultMap" type="com.sinosoft.capacity.db.pojo.EbizCostTask">
+    <id column="SYSTEM_NAME" jdbcType="VARCHAR" property="systemName" />
+    <id column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="YEAR" jdbcType="VARCHAR" property="year" />
+    <result column="DECEMBER" jdbcType="DECIMAL" property="december" />
+    <result column="JANUARY" jdbcType="DECIMAL" property="january" />
+    <result column="FEBRUARY" jdbcType="DECIMAL" property="february" />
+    <result column="MARCH" jdbcType="DECIMAL" property="march" />
+    <result column="APRIL" jdbcType="DECIMAL" property="april" />
+    <result column="MAY" jdbcType="DECIMAL" property="may" />
+    <result column="JUNE" jdbcType="DECIMAL" property="june" />
+    <result column="JULY" jdbcType="DECIMAL" property="july" />
+    <result column="AUGUST" jdbcType="DECIMAL" property="august" />
+    <result column="SEPTEMBER" jdbcType="DECIMAL" property="september" />
+    <result column="OCTOBER" jdbcType="DECIMAL" property="october" />
+    <result column="NOVEMBER" jdbcType="DECIMAL" property="november" />
+    <result column="TOTAL_COST" jdbcType="DECIMAL" property="totalCost" />
+    <result column="SERVER_START_TIME" jdbcType="TIMESTAMP" property="serverStartTime" />
+    <result column="SERVER_END_TIME" jdbcType="TIMESTAMP" property="serverEndTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    SYSTEM_NAME, NAME, YEAR, DECEMBER, JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, 
+    AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, TOTAL_COST, SERVER_START_TIME, SERVER_END_TIME
+  </sql>
+  <select id="selectByExample" parameterType="com.sinosoft.capacity.db.pojo.EbizCostTaskExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from EBIZ_COST_TASK
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="com.sinosoft.capacity.db.pojo.EbizCostTaskKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from EBIZ_COST_TASK
+    where SYSTEM_NAME = #{systemName,jdbcType=VARCHAR}
+      and NAME = #{name,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.sinosoft.capacity.db.pojo.EbizCostTaskKey">
+    delete from EBIZ_COST_TASK
+    where SYSTEM_NAME = #{systemName,jdbcType=VARCHAR}
+      and NAME = #{name,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.sinosoft.capacity.db.pojo.EbizCostTaskExample">
+    delete from EBIZ_COST_TASK
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.sinosoft.capacity.db.pojo.EbizCostTask">
+    insert into EBIZ_COST_TASK (SYSTEM_NAME, NAME, YEAR, 
+      DECEMBER, JANUARY, FEBRUARY, 
+      MARCH, APRIL, MAY, 
+      JUNE, JULY, AUGUST, 
+      SEPTEMBER, OCTOBER, NOVEMBER, 
+      TOTAL_COST, SERVER_START_TIME, SERVER_END_TIME
+      )
+    values (#{systemName,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{year,jdbcType=VARCHAR}, 
+      #{december,jdbcType=DECIMAL}, #{january,jdbcType=DECIMAL}, #{february,jdbcType=DECIMAL}, 
+      #{march,jdbcType=DECIMAL}, #{april,jdbcType=DECIMAL}, #{may,jdbcType=DECIMAL}, 
+      #{june,jdbcType=DECIMAL}, #{july,jdbcType=DECIMAL}, #{august,jdbcType=DECIMAL}, 
+      #{september,jdbcType=DECIMAL}, #{october,jdbcType=DECIMAL}, #{november,jdbcType=DECIMAL}, 
+      #{totalCost,jdbcType=DECIMAL}, #{serverStartTime,jdbcType=TIMESTAMP}, #{serverEndTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sinosoft.capacity.db.pojo.EbizCostTask">
+    insert into EBIZ_COST_TASK
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="systemName != null">
+        SYSTEM_NAME,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="year != null">
+        YEAR,
+      </if>
+      <if test="december != null">
+        DECEMBER,
+      </if>
+      <if test="january != null">
+        JANUARY,
+      </if>
+      <if test="february != null">
+        FEBRUARY,
+      </if>
+      <if test="march != null">
+        MARCH,
+      </if>
+      <if test="april != null">
+        APRIL,
+      </if>
+      <if test="may != null">
+        MAY,
+      </if>
+      <if test="june != null">
+        JUNE,
+      </if>
+      <if test="july != null">
+        JULY,
+      </if>
+      <if test="august != null">
+        AUGUST,
+      </if>
+      <if test="september != null">
+        SEPTEMBER,
+      </if>
+      <if test="october != null">
+        OCTOBER,
+      </if>
+      <if test="november != null">
+        NOVEMBER,
+      </if>
+      <if test="totalCost != null">
+        TOTAL_COST,
+      </if>
+      <if test="serverStartTime != null">
+        SERVER_START_TIME,
+      </if>
+      <if test="serverEndTime != null">
+        SERVER_END_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="systemName != null">
+        #{systemName,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null">
+        #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="december != null">
+        #{december,jdbcType=DECIMAL},
+      </if>
+      <if test="january != null">
+        #{january,jdbcType=DECIMAL},
+      </if>
+      <if test="february != null">
+        #{february,jdbcType=DECIMAL},
+      </if>
+      <if test="march != null">
+        #{march,jdbcType=DECIMAL},
+      </if>
+      <if test="april != null">
+        #{april,jdbcType=DECIMAL},
+      </if>
+      <if test="may != null">
+        #{may,jdbcType=DECIMAL},
+      </if>
+      <if test="june != null">
+        #{june,jdbcType=DECIMAL},
+      </if>
+      <if test="july != null">
+        #{july,jdbcType=DECIMAL},
+      </if>
+      <if test="august != null">
+        #{august,jdbcType=DECIMAL},
+      </if>
+      <if test="september != null">
+        #{september,jdbcType=DECIMAL},
+      </if>
+      <if test="october != null">
+        #{october,jdbcType=DECIMAL},
+      </if>
+      <if test="november != null">
+        #{november,jdbcType=DECIMAL},
+      </if>
+      <if test="totalCost != null">
+        #{totalCost,jdbcType=DECIMAL},
+      </if>
+      <if test="serverStartTime != null">
+        #{serverStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serverEndTime != null">
+        #{serverEndTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.sinosoft.capacity.db.pojo.EbizCostTaskExample" resultType="java.lang.Long">
+    select count(*) from EBIZ_COST_TASK
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update EBIZ_COST_TASK
+    <set>
+      <if test="record.systemName != null">
+        SYSTEM_NAME = #{record.systemName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null">
+        NAME = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.year != null">
+        YEAR = #{record.year,jdbcType=VARCHAR},
+      </if>
+      <if test="record.december != null">
+        DECEMBER = #{record.december,jdbcType=DECIMAL},
+      </if>
+      <if test="record.january != null">
+        JANUARY = #{record.january,jdbcType=DECIMAL},
+      </if>
+      <if test="record.february != null">
+        FEBRUARY = #{record.february,jdbcType=DECIMAL},
+      </if>
+      <if test="record.march != null">
+        MARCH = #{record.march,jdbcType=DECIMAL},
+      </if>
+      <if test="record.april != null">
+        APRIL = #{record.april,jdbcType=DECIMAL},
+      </if>
+      <if test="record.may != null">
+        MAY = #{record.may,jdbcType=DECIMAL},
+      </if>
+      <if test="record.june != null">
+        JUNE = #{record.june,jdbcType=DECIMAL},
+      </if>
+      <if test="record.july != null">
+        JULY = #{record.july,jdbcType=DECIMAL},
+      </if>
+      <if test="record.august != null">
+        AUGUST = #{record.august,jdbcType=DECIMAL},
+      </if>
+      <if test="record.september != null">
+        SEPTEMBER = #{record.september,jdbcType=DECIMAL},
+      </if>
+      <if test="record.october != null">
+        OCTOBER = #{record.october,jdbcType=DECIMAL},
+      </if>
+      <if test="record.november != null">
+        NOVEMBER = #{record.november,jdbcType=DECIMAL},
+      </if>
+      <if test="record.totalCost != null">
+        TOTAL_COST = #{record.totalCost,jdbcType=DECIMAL},
+      </if>
+      <if test="record.serverStartTime != null">
+        SERVER_START_TIME = #{record.serverStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.serverEndTime != null">
+        SERVER_END_TIME = #{record.serverEndTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update EBIZ_COST_TASK
+    set SYSTEM_NAME = #{record.systemName,jdbcType=VARCHAR},
+      NAME = #{record.name,jdbcType=VARCHAR},
+      YEAR = #{record.year,jdbcType=VARCHAR},
+      DECEMBER = #{record.december,jdbcType=DECIMAL},
+      JANUARY = #{record.january,jdbcType=DECIMAL},
+      FEBRUARY = #{record.february,jdbcType=DECIMAL},
+      MARCH = #{record.march,jdbcType=DECIMAL},
+      APRIL = #{record.april,jdbcType=DECIMAL},
+      MAY = #{record.may,jdbcType=DECIMAL},
+      JUNE = #{record.june,jdbcType=DECIMAL},
+      JULY = #{record.july,jdbcType=DECIMAL},
+      AUGUST = #{record.august,jdbcType=DECIMAL},
+      SEPTEMBER = #{record.september,jdbcType=DECIMAL},
+      OCTOBER = #{record.october,jdbcType=DECIMAL},
+      NOVEMBER = #{record.november,jdbcType=DECIMAL},
+      TOTAL_COST = #{record.totalCost,jdbcType=DECIMAL},
+      SERVER_START_TIME = #{record.serverStartTime,jdbcType=TIMESTAMP},
+      SERVER_END_TIME = #{record.serverEndTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sinosoft.capacity.db.pojo.EbizCostTask">
+    update EBIZ_COST_TASK
+    <set>
+      <if test="year != null">
+        YEAR = #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="december != null">
+        DECEMBER = #{december,jdbcType=DECIMAL},
+      </if>
+      <if test="january != null">
+        JANUARY = #{january,jdbcType=DECIMAL},
+      </if>
+      <if test="february != null">
+        FEBRUARY = #{february,jdbcType=DECIMAL},
+      </if>
+      <if test="march != null">
+        MARCH = #{march,jdbcType=DECIMAL},
+      </if>
+      <if test="april != null">
+        APRIL = #{april,jdbcType=DECIMAL},
+      </if>
+      <if test="may != null">
+        MAY = #{may,jdbcType=DECIMAL},
+      </if>
+      <if test="june != null">
+        JUNE = #{june,jdbcType=DECIMAL},
+      </if>
+      <if test="july != null">
+        JULY = #{july,jdbcType=DECIMAL},
+      </if>
+      <if test="august != null">
+        AUGUST = #{august,jdbcType=DECIMAL},
+      </if>
+      <if test="september != null">
+        SEPTEMBER = #{september,jdbcType=DECIMAL},
+      </if>
+      <if test="october != null">
+        OCTOBER = #{october,jdbcType=DECIMAL},
+      </if>
+      <if test="november != null">
+        NOVEMBER = #{november,jdbcType=DECIMAL},
+      </if>
+      <if test="totalCost != null">
+        TOTAL_COST = #{totalCost,jdbcType=DECIMAL},
+      </if>
+      <if test="serverStartTime != null">
+        SERVER_START_TIME = #{serverStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serverEndTime != null">
+        SERVER_END_TIME = #{serverEndTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where SYSTEM_NAME = #{systemName,jdbcType=VARCHAR}
+      and NAME = #{name,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sinosoft.capacity.db.pojo.EbizCostTask">
+    update EBIZ_COST_TASK
+    set YEAR = #{year,jdbcType=VARCHAR},
+      DECEMBER = #{december,jdbcType=DECIMAL},
+      JANUARY = #{january,jdbcType=DECIMAL},
+      FEBRUARY = #{february,jdbcType=DECIMAL},
+      MARCH = #{march,jdbcType=DECIMAL},
+      APRIL = #{april,jdbcType=DECIMAL},
+      MAY = #{may,jdbcType=DECIMAL},
+      JUNE = #{june,jdbcType=DECIMAL},
+      JULY = #{july,jdbcType=DECIMAL},
+      AUGUST = #{august,jdbcType=DECIMAL},
+      SEPTEMBER = #{september,jdbcType=DECIMAL},
+      OCTOBER = #{october,jdbcType=DECIMAL},
+      NOVEMBER = #{november,jdbcType=DECIMAL},
+      TOTAL_COST = #{totalCost,jdbcType=DECIMAL},
+      SERVER_START_TIME = #{serverStartTime,jdbcType=TIMESTAMP},
+      SERVER_END_TIME = #{serverEndTime,jdbcType=TIMESTAMP}
+    where SYSTEM_NAME = #{systemName,jdbcType=VARCHAR}
+      and NAME = #{name,jdbcType=VARCHAR}
+  </update>
+</mapper>

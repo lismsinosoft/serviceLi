@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosoft.capacity.db.dao.EbizUserTaskDAO">
+  <resultMap id="BaseResultMap" type="com.sinosoft.capacity.db.pojo.EbizUserTask">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="DEPARTMENT" jdbcType="VARCHAR" property="department" />
+    <result column="POWER" jdbcType="VARCHAR" property="power" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="MODIFY_DATE" jdbcType="TIMESTAMP" property="modifyDate" />
+    <result column="CREATE_USER" jdbcType="VARCHAR" property="createUser" />
+    <result column="MODIFY_USER" jdbcType="VARCHAR" property="modifyUser" />
+    <result column="IS_DELETE" jdbcType="INTEGER" property="isDelete" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, USER_NAME, PASSWORD, DEPARTMENT, POWER, CREATE_DATE, MODIFY_DATE, CREATE_USER, 
+    MODIFY_USER, IS_DELETE
+  </sql>
+  <select id="selectByExample" parameterType="com.sinosoft.capacity.db.pojo.EbizUserTaskExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from EBIZ_USER_TASK
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from EBIZ_USER_TASK
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from EBIZ_USER_TASK
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.sinosoft.capacity.db.pojo.EbizUserTaskExample">
+    delete from EBIZ_USER_TASK
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.sinosoft.capacity.db.pojo.EbizUserTask">
+    insert into EBIZ_USER_TASK (ID, USER_NAME, PASSWORD, 
+      DEPARTMENT, POWER, CREATE_DATE, 
+      MODIFY_DATE, CREATE_USER, MODIFY_USER, 
+      IS_DELETE)
+    values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{department,jdbcType=VARCHAR}, #{power,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{modifyDate,jdbcType=TIMESTAMP}, #{createUser,jdbcType=VARCHAR}, #{modifyUser,jdbcType=VARCHAR}, 
+      #{isDelete,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sinosoft.capacity.db.pojo.EbizUserTask">
+    insert into EBIZ_USER_TASK
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="userName != null">
+        USER_NAME,
+      </if>
+      <if test="password != null">
+        PASSWORD,
+      </if>
+      <if test="department != null">
+        DEPARTMENT,
+      </if>
+      <if test="power != null">
+        POWER,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="modifyDate != null">
+        MODIFY_DATE,
+      </if>
+      <if test="createUser != null">
+        CREATE_USER,
+      </if>
+      <if test="modifyUser != null">
+        MODIFY_USER,
+      </if>
+      <if test="isDelete != null">
+        IS_DELETE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="department != null">
+        #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="power != null">
+        #{power,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyDate != null">
+        #{modifyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyUser != null">
+        #{modifyUser,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.sinosoft.capacity.db.pojo.EbizUserTaskExample" resultType="java.lang.Long">
+    select count(*) from EBIZ_USER_TASK
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update EBIZ_USER_TASK
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.userName != null">
+        USER_NAME = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.password != null">
+        PASSWORD = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.department != null">
+        DEPARTMENT = #{record.department,jdbcType=VARCHAR},
+      </if>
+      <if test="record.power != null">
+        POWER = #{record.power,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createDate != null">
+        CREATE_DATE = #{record.createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.modifyDate != null">
+        MODIFY_DATE = #{record.modifyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createUser != null">
+        CREATE_USER = #{record.createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifyUser != null">
+        MODIFY_USER = #{record.modifyUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isDelete != null">
+        IS_DELETE = #{record.isDelete,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update EBIZ_USER_TASK
+    set ID = #{record.id,jdbcType=INTEGER},
+      USER_NAME = #{record.userName,jdbcType=VARCHAR},
+      PASSWORD = #{record.password,jdbcType=VARCHAR},
+      DEPARTMENT = #{record.department,jdbcType=VARCHAR},
+      POWER = #{record.power,jdbcType=VARCHAR},
+      CREATE_DATE = #{record.createDate,jdbcType=TIMESTAMP},
+      MODIFY_DATE = #{record.modifyDate,jdbcType=TIMESTAMP},
+      CREATE_USER = #{record.createUser,jdbcType=VARCHAR},
+      MODIFY_USER = #{record.modifyUser,jdbcType=VARCHAR},
+      IS_DELETE = #{record.isDelete,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sinosoft.capacity.db.pojo.EbizUserTask">
+    update EBIZ_USER_TASK
+    <set>
+      <if test="userName != null">
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        PASSWORD = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="department != null">
+        DEPARTMENT = #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="power != null">
+        POWER = #{power,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyDate != null">
+        MODIFY_DATE = #{modifyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        CREATE_USER = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyUser != null">
+        MODIFY_USER = #{modifyUser,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        IS_DELETE = #{isDelete,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sinosoft.capacity.db.pojo.EbizUserTask">
+    update EBIZ_USER_TASK
+    set USER_NAME = #{userName,jdbcType=VARCHAR},
+      PASSWORD = #{password,jdbcType=VARCHAR},
+      DEPARTMENT = #{department,jdbcType=VARCHAR},
+      POWER = #{power,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      MODIFY_DATE = #{modifyDate,jdbcType=TIMESTAMP},
+      CREATE_USER = #{createUser,jdbcType=VARCHAR},
+      MODIFY_USER = #{modifyUser,jdbcType=VARCHAR},
+      IS_DELETE = #{isDelete,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

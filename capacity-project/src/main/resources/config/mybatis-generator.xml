@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
     <!-- mysql连接配置 -->
-    <properties resource="mapper/config/mysql-connector-config.properties" />
+    <properties resource="config/mysql-connector-config.properties" />
 
     <!-- mysql驱动 -->
     <classPathEntry location="${jdbc.driverLocation}" />
@@ -12,10 +12,6 @@
     <context id="mysqlTables" targetRuntime="MyBatis3">
         <!-- sqlmap是否合并 -->
         <property name="mergeable" value="false" />
-        <plugin type="com.guohualife.common.util.db.generator.plugin.IsMergeXmlPlugin" />
-
-        <!-- 是否生成主键注解 -->
-        <plugin type="com.guohualife.common.util.db.generator.plugin.PrimaryKeyPlugin" />
 
         <commentGenerator>
             <property name="suppressDate" value="true" />
@@ -51,10 +47,19 @@
         </javaClientGenerator>
 
         <!--生成对应表及类名 -->
-        <table tableName="DZSW_REQUIREMENT_TASK" mapperName="DzswReauirementTaskDAO">
+        <!--<table tableName="DZSW_REQUIREMENT_TASK" mapperName="DzswReauirementTaskDAO">
             <columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" />
             <columnOverride column="IS_DELETE" javaType="Short" />
         </table>
-
+        <table tableName="EBIZ_COST_TASK" mapperName="EbizCostTaskDAO">
+                    <columnOverride column="SERVER_START_TIME" jdbcType="TIMESTAMP" />
+                    <columnOverride column="SERVER_END_TIME" jdbcType="TIMESTAMP" />
+        </table>-->
+        <table tableName="EBIZ_USER_TASK" mapperName="EbizUserTaskDAO">
+            <columnOverride column="ID" jdbcType="INTEGER" />
+            <columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" />
+            <columnOverride column="MODIFY_DATE" jdbcType="TIMESTAMP" />
+            <columnOverride column="IS_DELETE" jdbcType="INTEGER" />
+        </table>
     </context>
 </generatorConfiguration>
