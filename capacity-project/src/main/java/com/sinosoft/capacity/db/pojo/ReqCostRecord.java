@@ -3,7 +3,7 @@ package com.sinosoft.capacity.db.pojo;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class EbizCostTask extends EbizCostTaskKey {
+public class ReqCostRecord extends ReqCostRecordKey {
     private String year;
 
     private BigDecimal december;

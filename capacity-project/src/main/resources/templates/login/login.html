@@ -2,21 +2,25 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>Insert title here</title>
+    <title>工作量登记系统</title>
     <script src="/js/vue/vue.js">
 
     </script>
+    <script src="/js/axios/axios.min.js">
+
+    </script>
 </head>
-<body>
-<h1>springboot登录</h1>
-<div id="login_in">
-    用户名<input type="text" v-model="username" id="input_username"/> <br>
-    密码  <input type="text" v-model="password" id="input_password"/> <br>
-    <button id="login" @click="login()">登录</button>
-    <p >输入的用户名：{{username}}</p>
-    <p >输入的密码：{{password}}</p>
+<body background="/images/login.jpeg" >
+
+<div class="div" align="center" >
+    <h1>需求登记系统</h1>
+    <div id="login_in"  align="center" >
+        <h3>用户名</h3><input type="text" v-model="username" id="input_username"/> <br><br>
+        <h3>密&nbsp;&nbsp;码</h3> <input type="password" v-model="password" id="input_password"/> <br><br>
+        <button id="login" @click="login">登录</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button id="remit" @click="remit()">重置</button>
+    </div>
 </div>
-<a href="http://localhost:8080/capacity/hello" >hello</a>
 </body>
 
 <script>
@@ -27,15 +31,31 @@
             password:""
         },
         methods:{
-            login:function () {
+            /*login:function () {
                 this.$http.post('login',{username:this.username,password:this.password},{emulateJSON:true}).then(function(res){
-                    this.$router.push({ path:'/index.html'  })
-                    window.location.href = 'index';
+                    window.location.href = 'index.html';
                 },function(res){
                     console.log(res.status);
+                });
+            },*/
+            created:function(){
+            },
+            remit:function () {
+                    v.$data.username = "";
+                    v.$data.password = "";
+            },
+            login(){
+                axios({
+                    method:'get',
+                    url:'http://localhost:8080/capacity/hello'
+                }).catch(resp => {
+                    alert('登录失败：' + resp.status + ',' + resp.statusText);
+                    console.log('登录失败：' + resp.status + ',' + resp.statusText)
                 });
             }
         }
     })
+
+
 </script>
 </html>

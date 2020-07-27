@@ -1,6 +1,6 @@
 package com.sinosoft.capacity.db.pojo;
 
-public class EbizCostTaskKey {
+public class ReqCostRecordKey {
     private String systemName;
 
     private String name;

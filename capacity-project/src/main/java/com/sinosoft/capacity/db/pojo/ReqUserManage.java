@@ -2,7 +2,7 @@ package com.sinosoft.capacity.db.pojo;
 
 import java.util.Date;
 
-public class EbizUserTask {
+public class ReqUserManage {
     private Integer id;
 
     private String userName;

@@ -26,7 +26,7 @@ public class TestController {
          System.out.println(dzswRequirementTask.toString());
         return "index";
     }
-    @RequestMapping("/login")
+    @RequestMapping("/login1")
     public ModelAndView getLogin(){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/login/login");

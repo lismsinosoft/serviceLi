@@ -47,15 +47,15 @@
         </javaClientGenerator>
 
         <!--生成对应表及类名 -->
-        <!--<table tableName="DZSW_REQUIREMENT_TASK" mapperName="DzswReauirementTaskDAO">
+        <table tableName="REQ_REQUIREMENT_RECORD" mapperName="ReqRequirementRecordDAO">
             <columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" />
             <columnOverride column="IS_DELETE" javaType="Short" />
         </table>
-        <table tableName="EBIZ_COST_TASK" mapperName="EbizCostTaskDAO">
-                    <columnOverride column="SERVER_START_TIME" jdbcType="TIMESTAMP" />
-                    <columnOverride column="SERVER_END_TIME" jdbcType="TIMESTAMP" />
-        </table>-->
-        <table tableName="EBIZ_USER_TASK" mapperName="EbizUserTaskDAO">
+        <table tableName="REQ_COST_RECORD" mapperName="ReqCostRecordDAO">
+            <columnOverride column="SERVER_START_TIME" jdbcType="TIMESTAMP" />
+            <columnOverride column="SERVER_END_TIME" jdbcType="TIMESTAMP" />
+        </table>
+        <table tableName="REQ_USER_MANAGE" mapperName="ReqUserManageDAO">
             <columnOverride column="ID" jdbcType="INTEGER" />
             <columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" />
             <columnOverride column="MODIFY_DATE" jdbcType="TIMESTAMP" />
