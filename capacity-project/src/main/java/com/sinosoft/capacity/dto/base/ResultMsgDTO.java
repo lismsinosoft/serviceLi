@@ -41,7 +41,7 @@ public class ResultMsgDTO implements Serializable {
     }
     public static ResultMsgDTO fail(String code, String msg){
         ResultMsgDTO resultMsgDTO = new ResultMsgDTO();
-        resultMsgDTO.setCode("0");
+        resultMsgDTO.setCode(code);
         resultMsgDTO.setMsg(msg);
         return resultMsgDTO;
     }

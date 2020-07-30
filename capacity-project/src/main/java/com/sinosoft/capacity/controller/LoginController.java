@@ -18,6 +18,9 @@ public class LoginController {
     @PostMapping("/capacity/login")
     public ResultMsgDTO LoginSysTem(@Validated @RequestBody UserInfoDTO userInfoDTO){
         log.info(userInfoDTO.getUserName());
+        if(!"admin".equals(userInfoDTO.getUserName())){
+            return ResultMsgDTO.fail("0","登录异常");
+        }
         return ResultMsgDTO.succ("Hello");
     }
 }
