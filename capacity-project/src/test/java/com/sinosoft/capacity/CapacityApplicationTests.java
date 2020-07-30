@@ -1,8 +1,8 @@
 package com.sinosoft.capacity;
 
 import com.alibaba.fastjson.JSON;
-import com.sinosoft.capacity.db.dao.DzswReauirementTaskDAO;
-import com.sinosoft.capacity.db.pojo.DzswRequirementTask;
+import com.sinosoft.capacity.db.dao.ReqRequirementRecordDAO;
+import com.sinosoft.capacity.db.pojo.ReqRequirementRecord;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.jupiter.api.Test;
@@ -17,15 +17,15 @@ import javax.annotation.Resource;
 class CapacityApplicationTests {
 
     @Resource
-    private DzswReauirementTaskDAO dzswReauirementTaskDAO;
+    private ReqRequirementRecordDAO reqRequirementRecordDAO;
 
     private Log log = LogFactory.getLog(CapacityApplicationTests.class);
     @Test
     void contextLoads() {
-        DzswRequirementTask dzswRequirementTask = dzswReauirementTaskDAO.selectByPrimaryKey("SEQ-11158");
+        ReqRequirementRecord reqRequirementRecord = reqRequirementRecordDAO.selectByPrimaryKey("SEQ-11158");
         System.out.println("hello world!");
-        System.out.println(JSON.toJSON(dzswRequirementTask));
-        log.info(JSON.toJSON(dzswRequirementTask));
+        System.out.println(JSON.toJSON(reqRequirementRecord));
+        log.info(JSON.toJSON(reqRequirementRecord));
 
     }
 

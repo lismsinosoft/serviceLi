@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sinosoft.capacity.db.dao.ReqCostRecordDAO">
   <resultMap id="BaseResultMap" type="com.sinosoft.capacity.db.pojo.ReqCostRecord">
-    <id column="SYSTEM_NAME" jdbcType="VARCHAR" property="systemName" />
+    <id column="SYS_NAME" jdbcType="VARCHAR" property="sysName" />
     <id column="NAME" jdbcType="VARCHAR" property="name" />
     <result column="YEAR" jdbcType="VARCHAR" property="year" />
     <result column="DECEMBER" jdbcType="DECIMAL" property="december" />
@@ -20,6 +20,7 @@
     <result column="TOTAL_COST" jdbcType="DECIMAL" property="totalCost" />
     <result column="SERVER_START_TIME" jdbcType="TIMESTAMP" property="serverStartTime" />
     <result column="SERVER_END_TIME" jdbcType="TIMESTAMP" property="serverEndTime" />
+    <result column="DPART_NAME" jdbcType="VARCHAR" property="dpartName" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -80,8 +81,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    SYSTEM_NAME, NAME, YEAR, DECEMBER, JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, 
-    AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, TOTAL_COST, SERVER_START_TIME, SERVER_END_TIME
+    SYS_NAME, NAME, YEAR, DECEMBER, JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, 
+    AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, TOTAL_COST, SERVER_START_TIME, SERVER_END_TIME, 
+    DPART_NAME
   </sql>
   <select id="selectByExample" parameterType="com.sinosoft.capacity.db.pojo.ReqCostRecordExample" resultMap="BaseResultMap">
     select
@@ -101,12 +103,12 @@
     select 
     <include refid="Base_Column_List" />
     from REQ_COST_RECORD
-    where SYSTEM_NAME = #{systemName,jdbcType=VARCHAR}
+    where SYS_NAME = #{sysName,jdbcType=VARCHAR}
       and NAME = #{name,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="com.sinosoft.capacity.db.pojo.ReqCostRecordKey">
     delete from REQ_COST_RECORD
-    where SYSTEM_NAME = #{systemName,jdbcType=VARCHAR}
+    where SYS_NAME = #{sysName,jdbcType=VARCHAR}
       and NAME = #{name,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.sinosoft.capacity.db.pojo.ReqCostRecordExample">
@@ -116,26 +118,26 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.sinosoft.capacity.db.pojo.ReqCostRecord">
-    insert into REQ_COST_RECORD (SYSTEM_NAME, NAME, YEAR, 
+    insert into REQ_COST_RECORD (SYS_NAME, NAME, YEAR, 
       DECEMBER, JANUARY, FEBRUARY, 
       MARCH, APRIL, MAY, 
       JUNE, JULY, AUGUST, 
       SEPTEMBER, OCTOBER, NOVEMBER, 
-      TOTAL_COST, SERVER_START_TIME, SERVER_END_TIME
-      )
-    values (#{systemName,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{year,jdbcType=VARCHAR}, 
+      TOTAL_COST, SERVER_START_TIME, SERVER_END_TIME, 
+      DPART_NAME)
+    values (#{sysName,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{year,jdbcType=VARCHAR}, 
       #{december,jdbcType=DECIMAL}, #{january,jdbcType=DECIMAL}, #{february,jdbcType=DECIMAL}, 
       #{march,jdbcType=DECIMAL}, #{april,jdbcType=DECIMAL}, #{may,jdbcType=DECIMAL}, 
       #{june,jdbcType=DECIMAL}, #{july,jdbcType=DECIMAL}, #{august,jdbcType=DECIMAL}, 
       #{september,jdbcType=DECIMAL}, #{october,jdbcType=DECIMAL}, #{november,jdbcType=DECIMAL}, 
-      #{totalCost,jdbcType=DECIMAL}, #{serverStartTime,jdbcType=TIMESTAMP}, #{serverEndTime,jdbcType=TIMESTAMP}
-      )
+      #{totalCost,jdbcType=DECIMAL}, #{serverStartTime,jdbcType=TIMESTAMP}, #{serverEndTime,jdbcType=TIMESTAMP}, 
+      #{dpartName,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.sinosoft.capacity.db.pojo.ReqCostRecord">
     insert into REQ_COST_RECORD
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="systemName != null">
-        SYSTEM_NAME,
+      <if test="sysName != null">
+        SYS_NAME,
       </if>
       <if test="name != null">
         NAME,
@@ -188,10 +190,13 @@
       <if test="serverEndTime != null">
         SERVER_END_TIME,
       </if>
+      <if test="dpartName != null">
+        DPART_NAME,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="systemName != null">
-        #{systemName,jdbcType=VARCHAR},
+      <if test="sysName != null">
+        #{sysName,jdbcType=VARCHAR},
       </if>
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
@@ -244,6 +249,9 @@
       <if test="serverEndTime != null">
         #{serverEndTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="dpartName != null">
+        #{dpartName,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.sinosoft.capacity.db.pojo.ReqCostRecordExample" resultType="java.lang.Long">
@@ -255,8 +263,8 @@
   <update id="updateByExampleSelective" parameterType="map">
     update REQ_COST_RECORD
     <set>
-      <if test="record.systemName != null">
-        SYSTEM_NAME = #{record.systemName,jdbcType=VARCHAR},
+      <if test="record.sysName != null">
+        SYS_NAME = #{record.sysName,jdbcType=VARCHAR},
       </if>
       <if test="record.name != null">
         NAME = #{record.name,jdbcType=VARCHAR},
@@ -309,6 +317,9 @@
       <if test="record.serverEndTime != null">
         SERVER_END_TIME = #{record.serverEndTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.dpartName != null">
+        DPART_NAME = #{record.dpartName,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -316,7 +327,7 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update REQ_COST_RECORD
-    set SYSTEM_NAME = #{record.systemName,jdbcType=VARCHAR},
+    set SYS_NAME = #{record.sysName,jdbcType=VARCHAR},
       NAME = #{record.name,jdbcType=VARCHAR},
       YEAR = #{record.year,jdbcType=VARCHAR},
       DECEMBER = #{record.december,jdbcType=DECIMAL},
@@ -333,7 +344,8 @@
       NOVEMBER = #{record.november,jdbcType=DECIMAL},
       TOTAL_COST = #{record.totalCost,jdbcType=DECIMAL},
       SERVER_START_TIME = #{record.serverStartTime,jdbcType=TIMESTAMP},
-      SERVER_END_TIME = #{record.serverEndTime,jdbcType=TIMESTAMP}
+      SERVER_END_TIME = #{record.serverEndTime,jdbcType=TIMESTAMP},
+      DPART_NAME = #{record.dpartName,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -389,8 +401,11 @@
       <if test="serverEndTime != null">
         SERVER_END_TIME = #{serverEndTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="dpartName != null">
+        DPART_NAME = #{dpartName,jdbcType=VARCHAR},
+      </if>
     </set>
-    where SYSTEM_NAME = #{systemName,jdbcType=VARCHAR}
+    where SYS_NAME = #{sysName,jdbcType=VARCHAR}
       and NAME = #{name,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.sinosoft.capacity.db.pojo.ReqCostRecord">
@@ -410,8 +425,9 @@
       NOVEMBER = #{november,jdbcType=DECIMAL},
       TOTAL_COST = #{totalCost,jdbcType=DECIMAL},
       SERVER_START_TIME = #{serverStartTime,jdbcType=TIMESTAMP},
-      SERVER_END_TIME = #{serverEndTime,jdbcType=TIMESTAMP}
-    where SYSTEM_NAME = #{systemName,jdbcType=VARCHAR}
+      SERVER_END_TIME = #{serverEndTime,jdbcType=TIMESTAMP},
+      DPART_NAME = #{dpartName,jdbcType=VARCHAR}
+    where SYS_NAME = #{sysName,jdbcType=VARCHAR}
       and NAME = #{name,jdbcType=VARCHAR}
   </update>
 </mapper>

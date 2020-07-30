@@ -106,73 +106,73 @@ public class ReqCostRecordExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andSystemNameIsNull() {
-            addCriterion("SYSTEM_NAME is null");
+        public Criteria andSysNameIsNull() {
+            addCriterion("SYS_NAME is null");
             return (Criteria) this;
         }
 
-        public Criteria andSystemNameIsNotNull() {
-            addCriterion("SYSTEM_NAME is not null");
+        public Criteria andSysNameIsNotNull() {
+            addCriterion("SYS_NAME is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSystemNameEqualTo(String value) {
-            addCriterion("SYSTEM_NAME =", value, "systemName");
+        public Criteria andSysNameEqualTo(String value) {
+            addCriterion("SYS_NAME =", value, "sysName");
             return (Criteria) this;
         }
 
-        public Criteria andSystemNameNotEqualTo(String value) {
-            addCriterion("SYSTEM_NAME <>", value, "systemName");
+        public Criteria andSysNameNotEqualTo(String value) {
+            addCriterion("SYS_NAME <>", value, "sysName");
             return (Criteria) this;
         }
 
-        public Criteria andSystemNameGreaterThan(String value) {
-            addCriterion("SYSTEM_NAME >", value, "systemName");
+        public Criteria andSysNameGreaterThan(String value) {
+            addCriterion("SYS_NAME >", value, "sysName");
             return (Criteria) this;
         }
 
-        public Criteria andSystemNameGreaterThanOrEqualTo(String value) {
-            addCriterion("SYSTEM_NAME >=", value, "systemName");
+        public Criteria andSysNameGreaterThanOrEqualTo(String value) {
+            addCriterion("SYS_NAME >=", value, "sysName");
             return (Criteria) this;
         }
 
-        public Criteria andSystemNameLessThan(String value) {
-            addCriterion("SYSTEM_NAME <", value, "systemName");
+        public Criteria andSysNameLessThan(String value) {
+            addCriterion("SYS_NAME <", value, "sysName");
             return (Criteria) this;
         }
 
-        public Criteria andSystemNameLessThanOrEqualTo(String value) {
-            addCriterion("SYSTEM_NAME <=", value, "systemName");
+        public Criteria andSysNameLessThanOrEqualTo(String value) {
+            addCriterion("SYS_NAME <=", value, "sysName");
             return (Criteria) this;
         }
 
-        public Criteria andSystemNameLike(String value) {
-            addCriterion("SYSTEM_NAME like", value, "systemName");
+        public Criteria andSysNameLike(String value) {
+            addCriterion("SYS_NAME like", value, "sysName");
             return (Criteria) this;
         }
 
-        public Criteria andSystemNameNotLike(String value) {
-            addCriterion("SYSTEM_NAME not like", value, "systemName");
+        public Criteria andSysNameNotLike(String value) {
+            addCriterion("SYS_NAME not like", value, "sysName");
             return (Criteria) this;
         }
 
-        public Criteria andSystemNameIn(List<String> values) {
-            addCriterion("SYSTEM_NAME in", values, "systemName");
+        public Criteria andSysNameIn(List<String> values) {
+            addCriterion("SYS_NAME in", values, "sysName");
             return (Criteria) this;
         }
 
-        public Criteria andSystemNameNotIn(List<String> values) {
-            addCriterion("SYSTEM_NAME not in", values, "systemName");
+        public Criteria andSysNameNotIn(List<String> values) {
+            addCriterion("SYS_NAME not in", values, "sysName");
             return (Criteria) this;
         }
 
-        public Criteria andSystemNameBetween(String value1, String value2) {
-            addCriterion("SYSTEM_NAME between", value1, value2, "systemName");
+        public Criteria andSysNameBetween(String value1, String value2) {
+            addCriterion("SYS_NAME between", value1, value2, "sysName");
             return (Criteria) this;
         }
 
-        public Criteria andSystemNameNotBetween(String value1, String value2) {
-            addCriterion("SYSTEM_NAME not between", value1, value2, "systemName");
+        public Criteria andSysNameNotBetween(String value1, String value2) {
+            addCriterion("SYS_NAME not between", value1, value2, "sysName");
             return (Criteria) this;
         }
 
@@ -1213,6 +1213,76 @@ public class ReqCostRecordExample {
 
         public Criteria andServerEndTimeNotBetween(Date value1, Date value2) {
             addCriterion("SERVER_END_TIME not between", value1, value2, "serverEndTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDpartNameIsNull() {
+            addCriterion("DPART_NAME is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDpartNameIsNotNull() {
+            addCriterion("DPART_NAME is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDpartNameEqualTo(String value) {
+            addCriterion("DPART_NAME =", value, "dpartName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDpartNameNotEqualTo(String value) {
+            addCriterion("DPART_NAME <>", value, "dpartName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDpartNameGreaterThan(String value) {
+            addCriterion("DPART_NAME >", value, "dpartName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDpartNameGreaterThanOrEqualTo(String value) {
+            addCriterion("DPART_NAME >=", value, "dpartName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDpartNameLessThan(String value) {
+            addCriterion("DPART_NAME <", value, "dpartName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDpartNameLessThanOrEqualTo(String value) {
+            addCriterion("DPART_NAME <=", value, "dpartName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDpartNameLike(String value) {
+            addCriterion("DPART_NAME like", value, "dpartName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDpartNameNotLike(String value) {
+            addCriterion("DPART_NAME not like", value, "dpartName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDpartNameIn(List<String> values) {
+            addCriterion("DPART_NAME in", values, "dpartName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDpartNameNotIn(List<String> values) {
+            addCriterion("DPART_NAME not in", values, "dpartName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDpartNameBetween(String value1, String value2) {
+            addCriterion("DPART_NAME between", value1, value2, "dpartName");
+            return (Criteria) this;
+        }
+
+        public Criteria andDpartNameNotBetween(String value1, String value2) {
+            addCriterion("DPART_NAME not between", value1, value2, "dpartName");
             return (Criteria) this;
         }
     }

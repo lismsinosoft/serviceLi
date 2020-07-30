@@ -36,6 +36,8 @@ public class ReqCostRecord extends ReqCostRecordKey {
 
     private Date serverEndTime;
 
+    private String dpartName;
+
     public String getYear() {
         return year;
     }
@@ -162,5 +164,13 @@ public class ReqCostRecord extends ReqCostRecordKey {
 
     public void setServerEndTime(Date serverEndTime) {
         this.serverEndTime = serverEndTime;
+    }
+
+    public String getDpartName() {
+        return dpartName;
+    }
+
+    public void setDpartName(String dpartName) {
+        this.dpartName = dpartName == null ? null : dpartName.trim();
     }
 }

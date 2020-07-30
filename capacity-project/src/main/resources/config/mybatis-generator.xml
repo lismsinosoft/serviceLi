@@ -49,7 +49,7 @@
         <!--生成对应表及类名 -->
         <table tableName="REQ_REQUIREMENT_RECORD" mapperName="ReqRequirementRecordDAO">
             <columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" />
-            <columnOverride column="IS_DELETE" javaType="Short" />
+            <columnOverride column="IS_DELETE" jdbcType="INTEGER"  />
         </table>
         <table tableName="REQ_COST_RECORD" mapperName="ReqCostRecordDAO">
             <columnOverride column="SERVER_START_TIME" jdbcType="TIMESTAMP" />

@@ -5,7 +5,7 @@
     <id column="ID" jdbcType="INTEGER" property="id" />
     <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
     <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
-    <result column="DEPARTMENT" jdbcType="VARCHAR" property="department" />
+    <result column="DPART_NAME" jdbcType="VARCHAR" property="dpartName" />
     <result column="POWER" jdbcType="VARCHAR" property="power" />
     <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
     <result column="MODIFY_DATE" jdbcType="TIMESTAMP" property="modifyDate" />
@@ -72,7 +72,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    ID, USER_NAME, PASSWORD, DEPARTMENT, POWER, CREATE_DATE, MODIFY_DATE, CREATE_USER, 
+    ID, USER_NAME, PASSWORD, DPART_NAME, POWER, CREATE_DATE, MODIFY_DATE, CREATE_USER, 
     MODIFY_USER, IS_DELETE
   </sql>
   <select id="selectByExample" parameterType="com.sinosoft.capacity.db.pojo.ReqUserManageExample" resultMap="BaseResultMap">
@@ -107,11 +107,11 @@
   </delete>
   <insert id="insert" parameterType="com.sinosoft.capacity.db.pojo.ReqUserManage">
     insert into REQ_USER_MANAGE (ID, USER_NAME, PASSWORD, 
-      DEPARTMENT, POWER, CREATE_DATE, 
+      DPART_NAME, POWER, CREATE_DATE, 
       MODIFY_DATE, CREATE_USER, MODIFY_USER, 
       IS_DELETE)
     values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{department,jdbcType=VARCHAR}, #{power,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{dpartName,jdbcType=VARCHAR}, #{power,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
       #{modifyDate,jdbcType=TIMESTAMP}, #{createUser,jdbcType=VARCHAR}, #{modifyUser,jdbcType=VARCHAR}, 
       #{isDelete,jdbcType=INTEGER})
   </insert>
@@ -127,8 +127,8 @@
       <if test="password != null">
         PASSWORD,
       </if>
-      <if test="department != null">
-        DEPARTMENT,
+      <if test="dpartName != null">
+        DPART_NAME,
       </if>
       <if test="power != null">
         POWER,
@@ -159,8 +159,8 @@
       <if test="password != null">
         #{password,jdbcType=VARCHAR},
       </if>
-      <if test="department != null">
-        #{department,jdbcType=VARCHAR},
+      <if test="dpartName != null">
+        #{dpartName,jdbcType=VARCHAR},
       </if>
       <if test="power != null">
         #{power,jdbcType=VARCHAR},
@@ -200,8 +200,8 @@
       <if test="record.password != null">
         PASSWORD = #{record.password,jdbcType=VARCHAR},
       </if>
-      <if test="record.department != null">
-        DEPARTMENT = #{record.department,jdbcType=VARCHAR},
+      <if test="record.dpartName != null">
+        DPART_NAME = #{record.dpartName,jdbcType=VARCHAR},
       </if>
       <if test="record.power != null">
         POWER = #{record.power,jdbcType=VARCHAR},
@@ -231,7 +231,7 @@
     set ID = #{record.id,jdbcType=INTEGER},
       USER_NAME = #{record.userName,jdbcType=VARCHAR},
       PASSWORD = #{record.password,jdbcType=VARCHAR},
-      DEPARTMENT = #{record.department,jdbcType=VARCHAR},
+      DPART_NAME = #{record.dpartName,jdbcType=VARCHAR},
       POWER = #{record.power,jdbcType=VARCHAR},
       CREATE_DATE = #{record.createDate,jdbcType=TIMESTAMP},
       MODIFY_DATE = #{record.modifyDate,jdbcType=TIMESTAMP},
@@ -251,8 +251,8 @@
       <if test="password != null">
         PASSWORD = #{password,jdbcType=VARCHAR},
       </if>
-      <if test="department != null">
-        DEPARTMENT = #{department,jdbcType=VARCHAR},
+      <if test="dpartName != null">
+        DPART_NAME = #{dpartName,jdbcType=VARCHAR},
       </if>
       <if test="power != null">
         POWER = #{power,jdbcType=VARCHAR},
@@ -279,7 +279,7 @@
     update REQ_USER_MANAGE
     set USER_NAME = #{userName,jdbcType=VARCHAR},
       PASSWORD = #{password,jdbcType=VARCHAR},
-      DEPARTMENT = #{department,jdbcType=VARCHAR},
+      DPART_NAME = #{dpartName,jdbcType=VARCHAR},
       POWER = #{power,jdbcType=VARCHAR},
       CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
       MODIFY_DATE = #{modifyDate,jdbcType=TIMESTAMP},

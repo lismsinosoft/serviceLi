@@ -9,7 +9,7 @@ public class ReqUserManage {
 
     private String password;
 
-    private String department;
+    private String dpartName;
 
     private String power;
 
@@ -47,12 +47,12 @@ public class ReqUserManage {
         this.password = password == null ? null : password.trim();
     }
 
-    public String getDepartment() {
-        return department;
+    public String getDpartName() {
+        return dpartName;
     }
 
-    public void setDepartment(String department) {
-        this.department = department == null ? null : department.trim();
+    public void setDpartName(String dpartName) {
+        this.dpartName = dpartName == null ? null : dpartName.trim();
     }
 
     public String getPower() {

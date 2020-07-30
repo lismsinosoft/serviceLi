@@ -36,7 +36,7 @@ public class ReqRequirementRecord {
 
     private BigDecimal unitPrice;
 
-    private String dateTime;
+    private Date reqCreatedate;
 
     private String item;
 
@@ -52,21 +52,25 @@ public class ReqRequirementRecord {
 
     private String urlItem;
 
-    private String operatorName;
-
-    private String modifyName;
-
-    private Date createDate;
-
-    private String remark;
-
-    private Short isDelete;
-
     private String status;
 
     private String isOnline;
 
     private String isFinish;
+
+    private String dpartName;
+
+    private String remark;
+
+    private String createUser;
+
+    private String modifyUser;
+
+    private Date createDate;
+
+    private Date modifyDate;
+
+    private Integer isDelete;
 
     public String getSeqNo() {
         return seqNo;
@@ -196,12 +200,12 @@ public class ReqRequirementRecord {
         this.unitPrice = unitPrice;
     }
 
-    public String getDateTime() {
-        return dateTime;
+    public Date getReqCreatedate() {
+        return reqCreatedate;
     }
 
-    public void setDateTime(String dateTime) {
-        this.dateTime = dateTime == null ? null : dateTime.trim();
+    public void setReqCreatedate(Date reqCreatedate) {
+        this.reqCreatedate = reqCreatedate;
     }
 
     public String getItem() {
@@ -260,46 +264,6 @@ public class ReqRequirementRecord {
         this.urlItem = urlItem == null ? null : urlItem.trim();
     }
 
-    public String getOperatorName() {
-        return operatorName;
-    }
-
-    public void setOperatorName(String operatorName) {
-        this.operatorName = operatorName == null ? null : operatorName.trim();
-    }
-
-    public String getModifyName() {
-        return modifyName;
-    }
-
-    public void setModifyName(String modifyName) {
-        this.modifyName = modifyName == null ? null : modifyName.trim();
-    }
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public String getRemark() {
-        return remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark == null ? null : remark.trim();
-    }
-
-    public Short getIsDelete() {
-        return isDelete;
-    }
-
-    public void setIsDelete(Short isDelete) {
-        this.isDelete = isDelete;
-    }
-
     public String getStatus() {
         return status;
     }
@@ -322,5 +286,61 @@ public class ReqRequirementRecord {
 
     public void setIsFinish(String isFinish) {
         this.isFinish = isFinish == null ? null : isFinish.trim();
+    }
+
+    public String getDpartName() {
+        return dpartName;
+    }
+
+    public void setDpartName(String dpartName) {
+        this.dpartName = dpartName == null ? null : dpartName.trim();
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
+    }
+
+    public String getCreateUser() {
+        return createUser;
+    }
+
+    public void setCreateUser(String createUser) {
+        this.createUser = createUser == null ? null : createUser.trim();
+    }
+
+    public String getModifyUser() {
+        return modifyUser;
+    }
+
+    public void setModifyUser(String modifyUser) {
+        this.modifyUser = modifyUser == null ? null : modifyUser.trim();
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public Date getModifyDate() {
+        return modifyDate;
+    }
+
+    public void setModifyDate(Date modifyDate) {
+        this.modifyDate = modifyDate;
+    }
+
+    public Integer getIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(Integer isDelete) {
+        this.isDelete = isDelete;
     }
 }

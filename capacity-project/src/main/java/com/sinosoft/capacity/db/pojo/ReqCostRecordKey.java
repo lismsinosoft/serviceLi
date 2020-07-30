@@ -1,16 +1,16 @@
 package com.sinosoft.capacity.db.pojo;
 
 public class ReqCostRecordKey {
-    private String systemName;
+    private String sysName;
 
     private String name;
 
-    public String getSystemName() {
-        return systemName;
+    public String getSysName() {
+        return sysName;
     }
 
-    public void setSystemName(String systemName) {
-        this.systemName = systemName == null ? null : systemName.trim();
+    public void setSysName(String sysName) {
+        this.sysName = sysName == null ? null : sysName.trim();
     }
 
     public String getName() {

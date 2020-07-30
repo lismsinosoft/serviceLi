@@ -305,73 +305,73 @@ public class ReqUserManageExample {
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentIsNull() {
-            addCriterion("DEPARTMENT is null");
+        public Criteria andDpartNameIsNull() {
+            addCriterion("DPART_NAME is null");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentIsNotNull() {
-            addCriterion("DEPARTMENT is not null");
+        public Criteria andDpartNameIsNotNull() {
+            addCriterion("DPART_NAME is not null");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentEqualTo(String value) {
-            addCriterion("DEPARTMENT =", value, "department");
+        public Criteria andDpartNameEqualTo(String value) {
+            addCriterion("DPART_NAME =", value, "dpartName");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentNotEqualTo(String value) {
-            addCriterion("DEPARTMENT <>", value, "department");
+        public Criteria andDpartNameNotEqualTo(String value) {
+            addCriterion("DPART_NAME <>", value, "dpartName");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentGreaterThan(String value) {
-            addCriterion("DEPARTMENT >", value, "department");
+        public Criteria andDpartNameGreaterThan(String value) {
+            addCriterion("DPART_NAME >", value, "dpartName");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentGreaterThanOrEqualTo(String value) {
-            addCriterion("DEPARTMENT >=", value, "department");
+        public Criteria andDpartNameGreaterThanOrEqualTo(String value) {
+            addCriterion("DPART_NAME >=", value, "dpartName");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentLessThan(String value) {
-            addCriterion("DEPARTMENT <", value, "department");
+        public Criteria andDpartNameLessThan(String value) {
+            addCriterion("DPART_NAME <", value, "dpartName");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentLessThanOrEqualTo(String value) {
-            addCriterion("DEPARTMENT <=", value, "department");
+        public Criteria andDpartNameLessThanOrEqualTo(String value) {
+            addCriterion("DPART_NAME <=", value, "dpartName");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentLike(String value) {
-            addCriterion("DEPARTMENT like", value, "department");
+        public Criteria andDpartNameLike(String value) {
+            addCriterion("DPART_NAME like", value, "dpartName");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentNotLike(String value) {
-            addCriterion("DEPARTMENT not like", value, "department");
+        public Criteria andDpartNameNotLike(String value) {
+            addCriterion("DPART_NAME not like", value, "dpartName");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentIn(List<String> values) {
-            addCriterion("DEPARTMENT in", values, "department");
+        public Criteria andDpartNameIn(List<String> values) {
+            addCriterion("DPART_NAME in", values, "dpartName");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentNotIn(List<String> values) {
-            addCriterion("DEPARTMENT not in", values, "department");
+        public Criteria andDpartNameNotIn(List<String> values) {
+            addCriterion("DPART_NAME not in", values, "dpartName");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentBetween(String value1, String value2) {
-            addCriterion("DEPARTMENT between", value1, value2, "department");
+        public Criteria andDpartNameBetween(String value1, String value2) {
+            addCriterion("DPART_NAME between", value1, value2, "dpartName");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentNotBetween(String value1, String value2) {
-            addCriterion("DEPARTMENT not between", value1, value2, "department");
+        public Criteria andDpartNameNotBetween(String value1, String value2) {
+            addCriterion("DPART_NAME not between", value1, value2, "dpartName");
             return (Criteria) this;
         }
 
